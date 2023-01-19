@@ -8,11 +8,10 @@ public class Teleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.name == "PlayerCapsule")
         {
-            other.transform.root.gameObject.GetComponentInChildren<CharacterController>().enabled = false;
-            other.transform.root.position = TPPoint.position;
-            other.transform.root.gameObject.GetComponentInChildren<CharacterController>().enabled = true;
+            other.GetComponentInParent<CharacterController>().Move(TPPoint.position - new Vector3(0, 0.906318f, 0) - GameObject.Find("PlayerCapsule").transform.position);
+            other.GetComponentInParent<CharacterController>().SimpleMove(Vector3.zero);
         }
     }
 }
