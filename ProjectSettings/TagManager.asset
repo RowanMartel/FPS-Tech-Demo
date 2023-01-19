@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Button
+  - Killzone
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Interactive
   - Water
   - UI
-  - 
+  - Teleport
   - 
   - 
   - 

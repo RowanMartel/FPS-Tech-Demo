@@ -5,32 +5,35 @@ using UnityEngine;
 public class ButtonObj : MonoBehaviour
 {
     GameObject player;
+    public GameObject obj;
 
-    public bool RotatePlayerToggle;
-    public float RotatePlayerAmount;
-    public float RotatePlayerDegreesPerSec;
-    
-    void Start()
-    {
-        player = GameObject.FindWithTag("Player");
-    }
+    public bool ActivateSetObjActive;
+    public bool ActivateSetObjInactive;
+    public bool ActivateToggleObjActive;
 
     public void Activate()
     {
-        if (RotatePlayerToggle)
-            RotatePlayer();
+        if (ActivateSetObjActive)
+            SetObjActive();
+        if (ActivateSetObjInactive)
+            SetObjInactive();
+        if (ActivateToggleObjActive)
+            ToggleObjActive();
     }
 
-    IEnumerator RotatePlayer()
+    public void SetObjInactive()
     {
-        float elapsed = 0;
-
-        while (player.transform.eulerAngles.y < RotatePlayerAmount)
-        {
-            //transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion.Euler(transform.rotation.x, 345f, tramsform.rotation.z), Time.deltaTime * speed);
-            elapsed += Time.deltaTime * RotatePlayerDegreesPerSec / 60;
-            transform.Rotate(0, elapsed, 0);
-            yield return new WaitForEndOfFrame();
-        }
+        obj.gameObject.SetActive(false);
+    }
+    public void SetObjActive()
+    {
+        obj.gameObject.SetActive(true);
+    }
+    public void ToggleObjActive()
+    {
+        if (obj.activeInHierarchy)
+            SetObjInactive();
+        else
+            SetObjActive();
     }
 }
