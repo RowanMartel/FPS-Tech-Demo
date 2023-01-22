@@ -6,7 +6,13 @@ public class Teleport : MonoBehaviour
 {
     public Transform TPPoint;
     public bool KillZone;
-    bool Teleporting = false;
+    GlobalVars globalVars;
+
+    private void Start()
+    {
+        globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
+        globalVars.teleporting = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,12 +20,12 @@ public class Teleport : MonoBehaviour
         {
             if (!KillZone)
             {
-                if (Teleporting)
+                if (globalVars.teleporting)
                 {
-                    Teleporting = false;
+                    globalVars.teleporting = false;
                     return;
                 }
-                Teleporting = true;
+                globalVars.teleporting = true;
             }
 
             other.transform.rotation = TPPoint.transform.rotation;
