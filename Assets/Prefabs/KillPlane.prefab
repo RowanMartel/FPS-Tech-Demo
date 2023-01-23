@@ -113,3 +113,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TPPoint: {fileID: 0}
   KillZone: 1
+  rotate: 1
