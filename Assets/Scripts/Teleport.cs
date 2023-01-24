@@ -42,7 +42,6 @@ public class Teleport : MonoBehaviour
 
             other.GetComponentInChildren<CapsuleCollider>().enabled = false;
             Physics.IgnoreLayerCollision(7, 0, true);
-            Physics.IgnoreLayerCollision(7, 3, true);
 
 
             CharController.Move(TPPoint.position - new Vector3(0, 0.906318f, 0) - GameObject.Find("PlayerCapsule").transform.position);
@@ -50,7 +49,6 @@ public class Teleport : MonoBehaviour
 
             other.GetComponentInChildren<CapsuleCollider>().enabled = true;
             Physics.IgnoreLayerCollision(7, 0, false);
-            Physics.IgnoreLayerCollision(7, 3, false);
         }
     }
 }
