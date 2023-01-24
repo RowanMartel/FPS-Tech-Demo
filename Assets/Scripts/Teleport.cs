@@ -8,11 +8,13 @@ public class Teleport : MonoBehaviour
     public bool KillZone;
     GlobalVars globalVars;
     public bool rotate;
+    DeterminePlayerSpawn playerSpawn;
 
     private void Start()
     {
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
         globalVars.teleporting = false;
+        playerSpawn = GameObject.Find("EventManager").GetComponent<DeterminePlayerSpawn>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +31,10 @@ public class Teleport : MonoBehaviour
                     return;
                 }
                 globalVars.teleporting = true;
+            }
+            else
+            {
+                TPPoint = playerSpawn.spawnPoint;
             }
 
             if (rotate)
