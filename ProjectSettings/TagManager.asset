@@ -7,8 +7,6 @@ TagManager:
   - CinemachineTarget
   - Button
   - Killzone
-  - Weapon
-  - PlayerRoot
   layers:
   - Default
   - TransparentFX
