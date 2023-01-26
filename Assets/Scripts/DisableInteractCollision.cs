@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour
+public class DisableInteractCollision : MonoBehaviour
 {
     void Start()
     {
-        GetComponentInChildren<MeshRenderer>().enabled = false;
+        Physics.IgnoreLayerCollision(3, 7);
     }
 }
