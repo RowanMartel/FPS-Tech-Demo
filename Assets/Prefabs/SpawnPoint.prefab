@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8846573288908559369}
-  - component: {fileID: 1695290960802713956}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Player
@@ -33,18 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1695290960802713956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849054339186799407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1120771b4bf93d046b7048e06b495a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8325609934043557788
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +43,7 @@ GameObject:
   - component: {fileID: 5650153191612526954}
   - component: {fileID: 2361684317881666306}
   - component: {fileID: 935766565473815993}
+  - component: {fileID: 8579112896604630721}
   m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
@@ -128,3 +116,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8579112896604630721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8325609934043557788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120771b4bf93d046b7048e06b495a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour
+public class UIDissapear : MonoBehaviour
 {
     void Start()
     {
-        GetComponentInChildren<MeshRenderer>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
     }
 }
