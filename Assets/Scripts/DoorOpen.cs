@@ -4,34 +4,33 @@ using UnityEngine;
 
 public class DoorOpen : MonoBehaviour
 {
-    public float openTime;
-    float elapsedTime;
+    public float speed;
 
     public bool open;
     public bool close;
+
+    Vector3 startPos;
+    Vector3 endPos;
 
     private void Start()
     {
         open = false;
         close = false;
+
+        startPos = transform.position;
+        endPos = transform.position + new Vector3(0, 3, 0);
     }
     private void Update()
     {
-        if (open && elapsedTime < openTime)
+        if (open && transform.position.y < endPos.y)
         {
-            elapsedTime += Time.deltaTime;
-            transform.position += new Vector3(0, 0.5f / openTime / 60, 0);
+            Debug.Log("opening");
+            transform.position += new Vector3(0, speed, 0);
         }
-        else if (close && elapsedTime < openTime)
+        else if (close && transform.position.y > startPos.y)
         {
-            elapsedTime += Time.deltaTime;
-            transform.position += new Vector3(0, -0.5f / openTime / 60, 0);
-        }
-        if (elapsedTime >= openTime)
-        {
-            elapsedTime = 0;
-            open = false;
-            close = false;
+            Debug.Log("closing");
+            transform.position -= new Vector3(0, speed, 0);
         }
     }
 }

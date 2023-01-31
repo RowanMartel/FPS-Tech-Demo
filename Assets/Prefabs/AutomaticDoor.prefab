@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60ec0b466c5a7442ba65a4b7e135197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTime: 1
+  speed: 0.025
   open: 0
   close: 0
 --- !u!1 &5003393658326131052
