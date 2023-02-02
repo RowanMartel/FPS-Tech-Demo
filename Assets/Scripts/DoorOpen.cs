@@ -23,8 +23,8 @@ public class DoorOpen : MonoBehaviour
     private void Update()
     {
         if (open && transform.position.y < endPos.y)
-            transform.position += new Vector3(0, speed, 0);
+            transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
         else if (close && transform.position.y > startPos.y)
-            transform.position -= new Vector3(0, speed, 0);
+            transform.position -= new Vector3(0, speed, 0) * Time.deltaTime;
     }
 }

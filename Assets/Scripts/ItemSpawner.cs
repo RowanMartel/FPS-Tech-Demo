@@ -17,7 +17,6 @@ public class ItemSpawner : MonoBehaviour
         {
             Items[i] = Instantiate(Item, transform);
             Items[i].SetActive(false);
-            Debug.Log(Items[i]);
         }
     }
 

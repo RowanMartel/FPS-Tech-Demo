@@ -23,6 +23,10 @@ public class Interact : MonoBehaviour
                     case "Button":
                         hit.collider.gameObject.GetComponent<ButtonObj>().Activate();
                         break;
+                    case "Gun":
+                        Debug.Log("gun detected");
+                        hit.collider.gameObject.GetComponent<GunPickup>().SwapGun();
+                        break;
                 }
             }
         }
