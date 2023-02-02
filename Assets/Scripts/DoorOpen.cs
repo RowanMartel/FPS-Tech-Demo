@@ -23,14 +23,8 @@ public class DoorOpen : MonoBehaviour
     private void Update()
     {
         if (open && transform.position.y < endPos.y)
-        {
-            Debug.Log("opening");
             transform.position += new Vector3(0, speed, 0);
-        }
         else if (close && transform.position.y > startPos.y)
-        {
-            Debug.Log("closing");
             transform.position -= new Vector3(0, speed, 0);
-        }
     }
 }

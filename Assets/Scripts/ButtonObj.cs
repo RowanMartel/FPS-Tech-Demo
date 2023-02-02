@@ -11,6 +11,7 @@ public class ButtonObj : MonoBehaviour
     public bool ActivateSetObjActive;
     public bool ActivateSetObjInactive;
     public bool ActivateToggleObjActive;
+    public bool ActivateSpawner;
 
     public Material ButtonMaterial;
     public Material PressedMaterial;
@@ -30,6 +31,8 @@ public class ButtonObj : MonoBehaviour
             SetObjInactive();
         if (ActivateToggleObjActive)
             ToggleObjActive();
+        if (ActivateSpawner)
+            Spawner();
 
         StartCoroutine("UnPress");
     }
@@ -53,5 +56,9 @@ public class ButtonObj : MonoBehaviour
             SetObjInactive();
         else
             SetObjActive();
+    }
+    public void Spawner()
+    {
+        obj.GetComponent<ItemSpawner>().SpawnItem();
     }
 }
