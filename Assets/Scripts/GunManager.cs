@@ -11,11 +11,6 @@ public class GunManager : MonoBehaviour
         globalVars = FindObjectOfType<GlobalVars>();
     }
 
-    void Update()
-    {
-        transform.position = FindObjectOfType<CharacterController>().transform.position + new Vector3(1, 0, 1);
-    }
-
     public void ChangeModel()
     {
         for (int i = 0; i < transform.childCount; i++)

@@ -15,8 +15,6 @@ public class GunPickup : MonoBehaviour
 
     public void SwapGun()
     {
-        Debug.Log("swapping gun");
-
         int tempID = gunID;
         gunID = globalVars.playerWeapon;
         globalVars.playerWeapon = tempID;
@@ -26,8 +24,6 @@ public class GunPickup : MonoBehaviour
 
     void SetModelActive()
     {
-        Debug.Log("setting models active/inactive");
-
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(false);
 
@@ -35,7 +31,5 @@ public class GunPickup : MonoBehaviour
             return;
 
         transform.GetChild(gunID - 1).gameObject.SetActive(true);
-
-        Debug.Log("succesfully set a model active");
     }
 }

@@ -24,7 +24,6 @@ public class Interact : MonoBehaviour
                         hit.collider.gameObject.GetComponent<ButtonObj>().Activate();
                         break;
                     case "Gun":
-                        Debug.Log("gun detected");
                         hit.collider.gameObject.GetComponent<GunPickup>().SwapGun();
                         break;
                 }

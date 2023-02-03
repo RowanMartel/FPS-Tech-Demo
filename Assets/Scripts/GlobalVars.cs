@@ -5,12 +5,14 @@ using UnityEngine;
 public class GlobalVars : MonoBehaviour
 {
     public bool teleporting;
+
+    private int weaponHidden;
     public int playerWeapon
     {
-        get { return playerWeapon; }
+        get { return weaponHidden; }
         set
         { 
-            playerWeapon = value;
+            weaponHidden = value;
             gunManager.ChangeModel();
         }
     }
