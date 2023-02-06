@@ -15,16 +15,18 @@ public class RodSpawner : MonoBehaviour
 
         for (int i = 0; i < maxRods; i++)
         {
-            Rods[i] = Instantiate(Rod, GameObject.FindGameObjectWithTag("MainCamera").transform);
+            Rods[i] = Instantiate(Rod);
             Rods[i].SetActive(false);
         }
+
+        Debug.Log(Rods[0]);
     }
 
     public void SpawnItem()
     {
-        Rods[index].transform.position = transform.position;
-        Rods[index].GetComponent<Rigidbody>().Sleep();
         Rods[index].SetActive(true);
+        Rods[index].transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane * 10));
+        Rods[index].GetComponent<Rigidbody>().Sleep();
 
         index++;
         if (index == maxRods)

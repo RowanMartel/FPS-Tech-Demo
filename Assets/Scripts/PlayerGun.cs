@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PlayerGun : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    RodSpawner rodSpawner;
+
+    private void Start()
     {
-        
+        rodSpawner = GameObject.FindObjectOfType<RodSpawner>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("attempting to call spawnitem");
+            rodSpawner.SpawnItem();
+        }
     }
 }
