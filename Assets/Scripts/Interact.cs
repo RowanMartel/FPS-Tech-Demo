@@ -26,10 +26,11 @@ public class Interact : MonoBehaviour
                     case "Gun":
                         hit.collider.gameObject.GetComponent<GunPickup>().SwapGun();
                         break;
+                    case "DoorLock":
+                        hit.collider.gameObject.GetComponent<DoorLock>().Unlock();
+                        break;
                 }
             }
         }
-        else
-            Debug.Log("");
     }
 }

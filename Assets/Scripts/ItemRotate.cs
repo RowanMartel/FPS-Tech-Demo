@@ -6,6 +6,6 @@ public class ItemRotate : MonoBehaviour
 {
     void Update()
     {
-        transform.Rotate(new Vector3(0, 90, 0) * Time.deltaTime);
+        transform.Rotate(new Vector3(0, 90, 0), Time.deltaTime * 15, Space.World);
     }
 }

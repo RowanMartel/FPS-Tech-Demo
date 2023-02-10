@@ -17,10 +17,27 @@ public class GlobalVars : MonoBehaviour
         }
     }
 
+    public int keys;
+
+    // ammo
+    public int rodAmmo;
+    public int rodAmmoMax;
+
     GunManager gunManager;
 
     private void Start()
     {
         gunManager = FindObjectOfType<GunManager>();
+    }
+
+    public bool KeyCheck()
+    {
+        if (keys <= 0)
+            return false;
+        else
+        {
+            keys--;
+            return true;
+        }
     }
 }
