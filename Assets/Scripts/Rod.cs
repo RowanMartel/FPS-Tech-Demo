@@ -12,7 +12,7 @@ public class Rod : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x, 0.1f, transform.localScale.z);
         transform.LookAt(Camera.main.transform);
         transform.Rotate(new Vector3(100, 0, 0));
-        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Rigidbody>().useGravity = false;
         transform.SetParent(Camera.main.transform, true);
@@ -23,7 +23,7 @@ public class Rod : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             growing = false;
-            GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<BoxCollider>().enabled = true;
             GetComponent<Rigidbody>().isKinematic = false;
             GetComponent<Rigidbody>().useGravity = true;
             transform.SetParent(null, true);
@@ -34,7 +34,7 @@ public class Rod : MonoBehaviour
         if (transform.localScale.x >= 6)
             return;
 
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + (Time.deltaTime / 2), transform.localScale.z);
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + Time.deltaTime, transform.localScale.z);
         transform.Translate(Vector3.down * (Time.deltaTime / 2));
     }
 }
