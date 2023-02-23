@@ -9,6 +9,7 @@ TagManager:
   - Killzone
   - Gun
   - DoorLock
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - Teleport
   - Player
-  - 
-  - 
+  - Floor
+  - Wall
   - 
   - 
   - 

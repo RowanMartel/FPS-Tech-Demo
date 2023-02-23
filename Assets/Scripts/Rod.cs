@@ -34,7 +34,7 @@ public class Rod : MonoBehaviour
         if (transform.localScale.x >= 6)
             return;
 
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + Time.deltaTime, transform.localScale.z);
-        transform.Translate(Vector3.down * (Time.deltaTime / 2));
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y + Time.deltaTime * 2, transform.localScale.z);
+        transform.Translate(Vector3.down * (Time.deltaTime));
     }
 }
