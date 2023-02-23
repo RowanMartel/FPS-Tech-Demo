@@ -82,7 +82,7 @@ MonoBehaviour:
   GroundedRadius: 0.5
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 769
+    m_Bits: 777
   CinemachineCameraTarget: {fileID: 6060628520033345826}
   TopClamp: 89
   BottomClamp: -89
@@ -1393,6 +1393,7 @@ GameObject:
   - component: {fileID: 2855744423616908387}
   - component: {fileID: 2855744423616908386}
   - component: {fileID: 2855744423616908397}
+  - component: {fileID: 6926633405971338965}
   m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
@@ -1479,6 +1480,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6926633405971338965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855744423616908399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235603dabc1d12f4fa3ef1debc9aa776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3190410194315304262
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,6 +5776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5069001871242034961}
+  - component: {fileID: 6438054212586782500}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -5789,3 +5803,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6438054212586782500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138495136601615745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98cb37d0b7ee2d43a5d16ab12c61c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

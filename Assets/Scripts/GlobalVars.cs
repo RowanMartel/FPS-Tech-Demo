@@ -19,6 +19,8 @@ public class GlobalVars : MonoBehaviour
 
     public int keys;
 
+    public Vector3 PlayerPos;
+
     // ammo
     public int rodAmmo;
     public int rodAmmoMax;

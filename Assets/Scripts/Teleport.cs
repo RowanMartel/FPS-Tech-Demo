@@ -42,7 +42,6 @@ public class Teleport : MonoBehaviour
 
             other.GetComponentInChildren<CapsuleCollider>().enabled = false;
             Physics.IgnoreLayerCollision(7, 0, true);
-            Physics.IgnoreLayerCollision(7, 3, true);
             Physics.IgnoreLayerCollision(7, 8, true);
             Physics.IgnoreLayerCollision(7, 9, true);
 
@@ -52,7 +51,6 @@ public class Teleport : MonoBehaviour
 
             other.GetComponentInChildren<CapsuleCollider>().enabled = true;
             Physics.IgnoreLayerCollision(7, 0, false);
-            Physics.IgnoreLayerCollision(7, 3, false);
             Physics.IgnoreLayerCollision(7, 8, false);
             Physics.IgnoreLayerCollision(7, 9, false);
         }
