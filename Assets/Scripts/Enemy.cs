@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     public Material SearchMat;
     public Material RetreatMat;
 
+    GameObject AttackHitbox;
+
     NavMeshAgent agent;
 
     EnemyManager.EnemyStates state;
@@ -23,21 +25,22 @@ public class Enemy : MonoBehaviour
         {
             state = value;
             ChangeColour();
+            AttackHitbox.SetActive(false);
         }
     }
     
     GlobalVars globalVars;
 
     float timer;
-    int searchState;
 
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(FirstPatrolPoint.position);
-        State = EnemyManager.EnemyStates.Patrolling;
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
+        AttackHitbox = transform.GetChild(3).gameObject;
+        State = EnemyManager.EnemyStates.Patrolling;
     }
 
     public void ChangePatrolTarget(Vector3 newTarget)
@@ -56,6 +59,7 @@ public class Enemy : MonoBehaviour
                 Chase();
                 break;
             case EnemyManager.EnemyStates.Attacking:
+                Attack();
                 break;
             case EnemyManager.EnemyStates.Searching:
                 Search();
@@ -77,9 +81,16 @@ public class Enemy : MonoBehaviour
             StartRetreat();
     }
 
+    void Attack()
+    {
+        timer += Time.deltaTime;
+        if (timer >= 0.5f)
+            AttackHitbox.SetActive(true);
+    }
+
     public void StartChase()
     {
-        if (State == EnemyManager.EnemyStates.Patrolling || State == EnemyManager.EnemyStates.Retreating)
+        if (State == EnemyManager.EnemyStates.Patrolling || State == EnemyManager.EnemyStates.Retreating || State == EnemyManager.EnemyStates.Attacking)
             State = EnemyManager.EnemyStates.Chasing;
     }
 
@@ -95,15 +106,24 @@ public class Enemy : MonoBehaviour
             return;
         State = EnemyManager.EnemyStates.Searching;
         timer = 0;
-        searchState = 0;
     }
 
     public void StartRetreat()
     {
-        if (State != EnemyManager.EnemyStates.Searching)
+        if (State == EnemyManager.EnemyStates.Searching || State == EnemyManager.EnemyStates.Attacking)
+        {
+            State = EnemyManager.EnemyStates.Retreating;
+            agent.SetDestination(FirstPatrolPoint.position);
+        }
+    }
+
+    public void StartAttack()
+    {
+        if (State != EnemyManager.EnemyStates.Chasing)
             return;
-        state = EnemyManager.EnemyStates.Retreating;
-        agent.SetDestination(FirstPatrolPoint.position);
+        State = EnemyManager.EnemyStates.Attacking;
+        agent.SetDestination(transform.position);
+        timer = 0;
     }
 
     void ChangeColour()
