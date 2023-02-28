@@ -11,5 +11,6 @@ public class PatrolPoint : MonoBehaviour
         if (other.tag != "Enemy")
             return;
         other.gameObject.GetComponent<Enemy>().ChangePatrolTarget(RedirectPoint.position);
+        other.gameObject.GetComponent<Enemy>().StopRetreat();
     }
 }

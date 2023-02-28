@@ -32,14 +32,14 @@ public class Enemy : MonoBehaviour
     GlobalVars globalVars;
 
     float timer;
-
+    float distance;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(FirstPatrolPoint.position);
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
-        AttackHitbox = transform.GetChild(3).gameObject;
+        AttackHitbox = transform.GetChild(0).gameObject;
         State = EnemyManager.EnemyStates.Patrolling;
     }
 
@@ -67,6 +67,22 @@ public class Enemy : MonoBehaviour
             case EnemyManager.EnemyStates.Retreating:
                 break;
         }
+
+        distance = Vector3.Distance(transform.position, globalVars.PlayerPos);
+        if (distance <= 11)
+            Find();
+        if (distance <= 4)
+            StartChase();
+        if (distance <= 1.5f)
+            StartAttack();
+        if (distance >= 11)
+            StartSearch();
+    }
+
+    public void StopRetreat()
+    {
+        if (State == EnemyManager.EnemyStates.Retreating)
+            State = EnemyManager.EnemyStates.Patrolling;
     }
 
     void Chase()
@@ -90,6 +106,8 @@ public class Enemy : MonoBehaviour
 
     public void StartChase()
     {
+        if (distance <= 1.5f)
+            return;
         if (State == EnemyManager.EnemyStates.Patrolling || State == EnemyManager.EnemyStates.Retreating || State == EnemyManager.EnemyStates.Attacking)
             State = EnemyManager.EnemyStates.Chasing;
     }
