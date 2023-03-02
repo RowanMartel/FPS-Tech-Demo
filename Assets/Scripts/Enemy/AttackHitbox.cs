@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class AttackHitbox : MonoBehaviour
 {
+    GlobalVars globalVars;
+
+    private void Start()
+    {
+        globalVars = GameObject.FindObjectOfType<GlobalVars>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "PlayerCapsule")
-        { 
-            transform.GetComponentInParent<Enemy>().StartRetreat();
+        {
+            globalVars.playerDead = true;
         }
     }
 }

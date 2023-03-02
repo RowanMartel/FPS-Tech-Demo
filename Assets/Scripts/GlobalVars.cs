@@ -21,6 +21,17 @@ public class GlobalVars : MonoBehaviour
 
     public Vector3 PlayerPos;
 
+    public bool playerDeadHidden;
+    public bool playerDead
+    {
+        get { return playerDeadHidden; }
+        set 
+        {
+            playerDeadHidden = value;
+            StartCoroutine(SetPlayerAlive(1));
+        }
+    }
+
     // ammo
     public int rodAmmo;
     public int rodAmmoMax;
@@ -40,6 +51,15 @@ public class GlobalVars : MonoBehaviour
         {
             keys--;
             return true;
+        }
+    }
+
+    private IEnumerator SetPlayerAlive(float waitTime)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            playerDead = false;
         }
     }
 }

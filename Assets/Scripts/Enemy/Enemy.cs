@@ -5,7 +5,12 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform FirstPatrolPoint;
+    const int STARTCHASERANGE = 4;
+    const float ATTACKRANGE = 1.5f;
+    const int CHASERANGE = 11;
+
+    public Transform[] PatrolPoints;
+    int CurrentPatrolPoint;
 
     public Material PatrolMat;
     public Material ChaseMat;
@@ -26,6 +31,9 @@ public class Enemy : MonoBehaviour
             state = value;
             ChangeColour();
             AttackHitbox.SetActive(false);
+            timer = 0;
+            PatrolToRetreat = false;
+            PlayerHit = false;
         }
     }
     
@@ -34,26 +42,28 @@ public class Enemy : MonoBehaviour
     float timer;
     float distance;
 
+    public bool PlayerHit;
+    bool PatrolToRetreat;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(FirstPatrolPoint.position);
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
         AttackHitbox = transform.GetChild(0).gameObject;
+        PatrolToRetreat = false;
+        PlayerHit = false;
+        CurrentPatrolPoint = 0;
         State = EnemyManager.EnemyStates.Patrolling;
     }
 
-    public void ChangePatrolTarget(Vector3 newTarget)
+    void Update()
     {
-        if (State == EnemyManager.EnemyStates.Patrolling || State == EnemyManager.EnemyStates.Retreating)
-            agent.SetDestination(newTarget);
-    }
+        distance = Vector3.Distance(transform.position, globalVars.PlayerPos);
 
-    private void Update()
-    {
         switch (State)
         {
             case EnemyManager.EnemyStates.Patrolling:
+                Patrol();
                 break;
             case EnemyManager.EnemyStates.Chasing:
                 Chase();
@@ -65,83 +75,68 @@ public class Enemy : MonoBehaviour
                 Search();
                 break;
             case EnemyManager.EnemyStates.Retreating:
+                Retreat();
                 break;
         }
-
-        distance = Vector3.Distance(transform.position, globalVars.PlayerPos);
-        if (distance <= 11)
-            Find();
-        if (distance <= 4)
-            StartChase();
-        if (distance <= 1.5f)
-            StartAttack();
-        if (distance >= 11)
-            StartSearch();
     }
 
-    public void StopRetreat()
+    void Patrol()
     {
-        if (State == EnemyManager.EnemyStates.Retreating)
+        if (distance <= STARTCHASERANGE)
+            State = EnemyManager.EnemyStates.Chasing;
+
+        agent.SetDestination(PatrolPoints[CurrentPatrolPoint].position);
+    }
+
+    void Retreat()
+    {
+        if (distance <= STARTCHASERANGE)
+            State = EnemyManager.EnemyStates.Chasing;
+
+        agent.SetDestination(PatrolPoints[0].position);
+
+        if (PatrolToRetreat)
             State = EnemyManager.EnemyStates.Patrolling;
     }
 
     void Chase()
     {
+        if (distance <= ATTACKRANGE)
+            State = EnemyManager.EnemyStates.Attacking;
+
+        if (distance >= CHASERANGE)
+            State = EnemyManager.EnemyStates.Searching;
+
         agent.SetDestination(globalVars.PlayerPos);
+
+        if (globalVars.playerDead)
+            State = EnemyManager.EnemyStates.Retreating;
     }
 
     void Search()
     {
+        if (distance <= CHASERANGE)
+            State = EnemyManager.EnemyStates.Chasing;
+
         timer += Time.deltaTime;
         if (timer >= 15)
-            StartRetreat();
+            State = EnemyManager.EnemyStates.Retreating;
     }
 
     void Attack()
     {
+        if (timer == 0)
+            agent.SetDestination(transform.position);
+
+        if (distance >= ATTACKRANGE)
+            State = EnemyManager.EnemyStates.Chasing;
+
         timer += Time.deltaTime;
         if (timer >= 0.5f)
             AttackHitbox.SetActive(true);
-    }
 
-    public void StartChase()
-    {
-        if (distance <= 1.5f)
-            return;
-        if (State == EnemyManager.EnemyStates.Patrolling || State == EnemyManager.EnemyStates.Retreating || State == EnemyManager.EnemyStates.Attacking)
-            State = EnemyManager.EnemyStates.Chasing;
-    }
-
-    public void Find()
-    {
-        if (State == EnemyManager.EnemyStates.Searching)
-            State = EnemyManager.EnemyStates.Chasing;
-    }
-
-    public void StartSearch()
-    {
-        if (State != EnemyManager.EnemyStates.Chasing)
-            return;
-        State = EnemyManager.EnemyStates.Searching;
-        timer = 0;
-    }
-
-    public void StartRetreat()
-    {
-        if (State == EnemyManager.EnemyStates.Searching || State == EnemyManager.EnemyStates.Attacking)
-        {
+        if (globalVars.playerDead)
             State = EnemyManager.EnemyStates.Retreating;
-            agent.SetDestination(FirstPatrolPoint.position);
-        }
-    }
-
-    public void StartAttack()
-    {
-        if (State != EnemyManager.EnemyStates.Chasing)
-            return;
-        State = EnemyManager.EnemyStates.Attacking;
-        agent.SetDestination(transform.position);
-        timer = 0;
     }
 
     void ChangeColour()
@@ -163,6 +158,17 @@ public class Enemy : MonoBehaviour
             case EnemyManager.EnemyStates.Searching:
                 GetComponent<Renderer>().material = SearchMat;
                 break;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "PatrolPoint")
+        {
+            CurrentPatrolPoint++;
+            PatrolToRetreat = true;
+            if (CurrentPatrolPoint >= PatrolPoints.Length)
+                CurrentPatrolPoint = 0;
         }
     }
 }

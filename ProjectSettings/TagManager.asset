@@ -10,6 +10,7 @@ TagManager:
   - Gun
   - DoorLock
   - Enemy
+  - PatrolPoint
   layers:
   - Default
   - TransparentFX
