@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GlobalVars : MonoBehaviour
 {
+    public GameObject Player;
+
     public bool teleporting;
 
     private int weaponHidden;
@@ -35,6 +37,8 @@ public class GlobalVars : MonoBehaviour
     // ammo
     public int rodAmmo;
     public int rodAmmoMax;
+    public int tentacleAmmo;
+    public int tentacleAmmoMax;
 
     GunManager gunManager;
 

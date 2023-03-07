@@ -6,9 +6,11 @@ public class DeterminePlayerSpawn : MonoBehaviour
 {
     public Transform spawnPoint;
     public GameObject playerPrefab;
+    GlobalVars vars;
 
     void Start()
     {
-        Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+        vars = GameObject.FindObjectOfType<GlobalVars>();
+        vars.Player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
