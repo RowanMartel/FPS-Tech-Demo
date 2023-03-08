@@ -23,7 +23,7 @@ public class Tentacle : MonoBehaviour
     {
         if (attacking)
         {
-            tentacle.transform.localScale += new Vector3(0, Time.deltaTime * 5, 0);
+            tentacle.transform.localScale += new Vector3(0, Time.deltaTime * 7, 0);
             if (tentacle.transform.localScale.y >= maxLength)
             {
                 attacking = false;
@@ -48,7 +48,7 @@ public class Tentacle : MonoBehaviour
         if (globalVars.tentacleAmmo <= 0 || attacking || tentacle.activeSelf) return;
 
         globalVars.tentacleAmmo--;
-        tentacle.transform.localScale = new Vector3(tentacle.transform.localScale.x, 0, tentacle.transform.localScale.y);
+        tentacle.transform.localScale = new Vector3(tentacle.transform.localScale.x, 0, tentacle.transform.localScale.z);
         tentacle.SetActive(true);
         timer = 0;
         attacking = true;

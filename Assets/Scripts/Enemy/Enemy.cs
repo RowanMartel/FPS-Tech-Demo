@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    const int STARTCHASERANGE = 4;
+    const int STARTCHASERANGE = 7;
     const float ATTACKRANGE = 1.5f;
     const int CHASERANGE = 11;
 
@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public Material AttackMat;
     public Material SearchMat;
     public Material RetreatMat;
+    public Material DyingMat;
 
     GameObject AttackHitbox;
 
@@ -34,6 +35,11 @@ public class Enemy : MonoBehaviour
             timer = 0;
             PatrolToRetreat = false;
             PlayerHit = false;
+            if (State == EnemyManager.EnemyStates.Dead) gameObject.SetActive(false);
+            else if (State == EnemyManager.EnemyStates.Dying)
+            {
+                globalVars.kills++;
+            }
         }
     }
     
@@ -77,6 +83,18 @@ public class Enemy : MonoBehaviour
             case EnemyManager.EnemyStates.Retreating:
                 Retreat();
                 break;
+            case EnemyManager.EnemyStates.Dying:
+                Dying();
+                break;
+        }
+    }
+
+    void Dying()
+    {
+        transform.localScale -= new Vector3(Time.deltaTime * 5, Time.deltaTime * 5, Time.deltaTime * 5);
+        if (transform.localScale.x <= 0)
+        {
+            State = EnemyManager.EnemyStates.Dead;
         }
     }
 
@@ -158,6 +176,9 @@ public class Enemy : MonoBehaviour
             case EnemyManager.EnemyStates.Searching:
                 GetComponent<Renderer>().material = SearchMat;
                 break;
+            case EnemyManager.EnemyStates.Dying:
+                GetComponent<Renderer>().material = DyingMat;
+                break;
         }
     }
 
@@ -170,5 +191,15 @@ public class Enemy : MonoBehaviour
             if (CurrentPatrolPoint >= PatrolPoints.Length)
                 CurrentPatrolPoint = 0;
         }
+        else if (other.CompareTag("PlayerAttack"))
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        if (State == EnemyManager.EnemyStates.Dying) return;
+        State = EnemyManager.EnemyStates.Dying;
     }
 }

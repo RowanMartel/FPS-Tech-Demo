@@ -11854,12 +11854,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39553830162e3f48b7e393dcffa0a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstPatrolPoint: {fileID: 0}
+  PatrolPoints: []
   PatrolMat: {fileID: 2100000, guid: 5231a58fefa11bb45afa6d73061becd0, type: 2}
   ChaseMat: {fileID: 2100000, guid: 27f3fd92034302f47890cc55fae5bb7a, type: 2}
   AttackMat: {fileID: 2100000, guid: 0d94c25ecdc6d6d4fa3a85eb606abded, type: 2}
   SearchMat: {fileID: 2100000, guid: d3de51dba1ba66f4eabb4c0d493949a2, type: 2}
   RetreatMat: {fileID: 2100000, guid: e3049acf3e216504e99c09077bfc9431, type: 2}
+  DyingMat: {fileID: 2100000, guid: 75255d38bc1688d44ae19a207b451881, type: 2}
+  PlayerHit: 0
 --- !u!54 &8101412100613311004
 Rigidbody:
   m_ObjectHideFlags: 0

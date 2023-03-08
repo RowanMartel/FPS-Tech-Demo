@@ -53,6 +53,11 @@ public class AmmoPickup : MonoBehaviour
                     return;
                 globalVars.rodAmmo++;
                 break;
+            case 2:
+                if (globalVars.tentacleAmmo == globalVars.tentacleAmmoMax)
+                    return;
+                globalVars.tentacleAmmo++;
+                break;
         }
     }
 

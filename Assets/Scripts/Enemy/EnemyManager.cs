@@ -10,6 +10,8 @@ public class EnemyManager : MonoBehaviour
         Chasing,
         Searching,
         Attacking,
-        Retreating
+        Retreating,
+        Dying,
+        Dead
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - DoorLock
   - Enemy
   - PatrolPoint
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

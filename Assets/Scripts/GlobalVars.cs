@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class GlobalVars : MonoBehaviour
 {
+    [System.NonSerialized]
     public GameObject Player;
 
+    [System.NonSerialized]
     public bool teleporting;
 
+    [System.NonSerialized]
     private int weaponHidden;
     public int playerWeapon
     {
@@ -19,10 +22,13 @@ public class GlobalVars : MonoBehaviour
         }
     }
 
+    [System.NonSerialized]
     public int keys;
 
+    [System.NonSerialized]
     public Vector3 PlayerPos;
 
+    [System.NonSerialized]
     public bool playerDeadHidden;
     public bool playerDead
     {
@@ -42,9 +48,13 @@ public class GlobalVars : MonoBehaviour
 
     GunManager gunManager;
 
+    [System.NonSerialized]
+    public int kills;
+
     private void Start()
     {
         gunManager = FindObjectOfType<GunManager>();
+        kills = 0;
     }
 
     public bool KeyCheck()
