@@ -19,7 +19,7 @@ public class PlayerGun : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            switch (globalVars.playerWeapon)
+            switch (globalVars.PlayerWeapon)
             {
                 case 1:
                     rodSpawner.SpawnItem();

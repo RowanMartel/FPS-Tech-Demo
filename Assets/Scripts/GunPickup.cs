@@ -16,8 +16,8 @@ public class GunPickup : MonoBehaviour
     public void SwapGun()
     {
         int tempID = gunID;
-        gunID = globalVars.playerWeapon;
-        globalVars.playerWeapon = tempID;
+        gunID = globalVars.PlayerWeapon;
+        globalVars.PlayerWeapon = tempID;
 
         SetModelActive();
     }

@@ -16,9 +16,9 @@ public class GunManager : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
             transform.GetChild(i).gameObject.SetActive(false);
 
-        if (globalVars.playerWeapon == 0)
+        if (globalVars.PlayerWeapon == 0)
             return;
 
-        transform.GetChild(globalVars.playerWeapon - 1).gameObject.SetActive(true);
+        transform.GetChild(globalVars.PlayerWeapon - 1).gameObject.SetActive(true);
     }
 }

@@ -127,7 +127,7 @@ public class Enemy : MonoBehaviour
 
         agent.SetDestination(globalVars.PlayerPos);
 
-        if (globalVars.playerDead)
+        if (globalVars.PlayerDead)
             State = EnemyManager.EnemyStates.Retreating;
     }
 
@@ -153,7 +153,7 @@ public class Enemy : MonoBehaviour
         if (timer >= 0.5f)
             AttackHitbox.SetActive(true);
 
-        if (globalVars.playerDead)
+        if (globalVars.PlayerDead)
             State = EnemyManager.EnemyStates.Retreating;
     }
 

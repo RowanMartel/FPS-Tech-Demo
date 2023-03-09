@@ -11,13 +11,13 @@ public class GlobalVars : MonoBehaviour
     public bool teleporting;
 
     [System.NonSerialized]
-    private int weaponHidden;
-    public int playerWeapon
+    private int playerWeapon;
+    public int PlayerWeapon
     {
-        get { return weaponHidden; }
+        get { return playerWeapon; }
         set
         { 
-            weaponHidden = value;
+            playerWeapon = value;
             gunManager.ChangeModel();
         }
     }
@@ -29,16 +29,22 @@ public class GlobalVars : MonoBehaviour
     public Vector3 PlayerPos;
 
     [System.NonSerialized]
-    public bool playerDeadHidden;
-    public bool playerDead
+    public bool playerDead;
+    public bool PlayerDead
     {
-        get { return playerDeadHidden; }
+        get { return playerDead; }
         set 
         {
-            playerDeadHidden = value;
-            StartCoroutine(SetPlayerAlive(1));
+            playerDead = value;
+            if (PlayerDead)
+            {
+                resetDeathCountdown = true;
+                timer = 0;
+            }
         }
     }
+    bool resetDeathCountdown;
+    float timer;
 
     // ammo
     public int rodAmmo;
@@ -55,6 +61,19 @@ public class GlobalVars : MonoBehaviour
     {
         gunManager = FindObjectOfType<GunManager>();
         kills = 0;
+    }
+    private void Update()
+    {
+        if (resetDeathCountdown)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 0.1f)
+            {
+                PlayerDead = false;
+                resetDeathCountdown = false;
+                timer = 0;
+            }
+        }
     }
 
     public bool KeyCheck()
@@ -73,7 +92,7 @@ public class GlobalVars : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            playerDead = false;
+            PlayerDead = false;
         }
     }
 }

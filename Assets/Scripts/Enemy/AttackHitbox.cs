@@ -15,7 +15,7 @@ public class AttackHitbox : MonoBehaviour
     {
         if (other.name == "PlayerCapsule")
         {
-            globalVars.playerDead = true;
+            globalVars.PlayerDead = true;
         }
     }
 }
