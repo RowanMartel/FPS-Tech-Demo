@@ -52,7 +52,8 @@ public class GlobalVars : MonoBehaviour
     public int tentacleAmmo;
     public int tentacleAmmoMax;
 
-    GunManager gunManager;
+    [System.NonSerialized]
+    public GunManager gunManager;
 
     [System.NonSerialized]
     public int kills;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5263175548193648049}
   - component: {fileID: 8827371950295832739}
   - component: {fileID: 7549300642341867363}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: AmmoCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 4220980202965635236}
   - component: {fileID: 5923446682305067687}
   - component: {fileID: 1516975825511546700}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 836
+  m_VersionIndex: 839
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1606,7 +1606,7 @@ GameObject:
   - component: {fileID: 5553716683586469246}
   - component: {fileID: 7980326199259343455}
   - component: {fileID: 5858696142862875971}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1840,7 +1840,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1221
+  m_VersionIndex: 1224
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1935,7 +1935,7 @@ GameObject:
   - component: {fileID: 2109254207927897592}
   - component: {fileID: 2365118874365550794}
   - component: {fileID: 7442480047801394359}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2985,7 +2985,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 934
+  m_VersionIndex: 937
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3306,6 +3306,117 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 1025543830046995696, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+--- !u!1 &4675288770353183918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3519420573459002418}
+  - component: {fileID: 2820929532433538928}
+  - component: {fileID: 1982095775848180228}
+  m_Layer: 7
+  m_Name: GunCamera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3519420573459002418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675288770353183918}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7366375155693511846}
+  m_Father: {fileID: 6593567412541940094}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2820929532433538928
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675288770353183918}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.2
+  far clip plane: 500
+  field of view: 40
+  orthographic: 0
+  orthographic size: 10
+  m_Depth: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!114 &1982095775848180228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675288770353183918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4770218986335686500
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,7 +3429,7 @@ GameObject:
   - component: {fileID: 5953747213005563731}
   - component: {fileID: 6239953665774566478}
   - component: {fileID: 8249795743258511655}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: KillCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3419,7 +3530,7 @@ GameObject:
   - component: {fileID: 4819173265665531475}
   - component: {fileID: 3131587334716879425}
   - component: {fileID: 533643698146577316}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3570,7 +3681,7 @@ GameObject:
   - component: {fileID: 4755039358338819662}
   - component: {fileID: 2627946229847392806}
   - component: {fileID: 427764430377927838}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
@@ -3942,7 +4053,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1229
+  m_VersionIndex: 1235
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3997,7 +4108,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 61248f03cab31864f9a8fa57a0e250b1, type: 2}
+  - {fileID: 2100000, guid: 43949a8e3a8b5f446ace3fa7ef7f6b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4054,7 +4165,7 @@ GameObject:
   - component: {fileID: 6917191057633213942}
   - component: {fileID: 930119876492627338}
   - component: {fileID: 3309085470346289205}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5104,7 +5215,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 845
+  m_VersionIndex: 848
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5252,7 +5363,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7366375155693511846}
+  - {fileID: 3519420573459002418}
   m_Father: {fileID: 5069001871242034961}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5265,8 +5376,8 @@ Camera:
   m_GameObject: {fileID: 6593567412541940091}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.972549, g: 0.95686275, b: 0.92941177, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5284,10 +5395,10 @@ Camera:
   field of view: 40
   orthographic: 0
   orthographic size: 10
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3071
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5351,7 +5462,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2698928417791421720}
   - component: {fileID: 184986718070735783}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Gun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5402,7 +5513,7 @@ GameObject:
   - component: {fileID: 7348423165295926163}
   - component: {fileID: 2635772793937662731}
   - component: {fileID: 456590644731306599}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5548,7 +5659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5710659094788717372}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Gun1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5587,7 +5698,7 @@ GameObject:
   - component: {fileID: 5471903333811397313}
   - component: {fileID: 654309981251932818}
   - component: {fileID: 6836494568393848353}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6637,7 +6748,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 675
+  m_VersionIndex: 681
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6735,7 +6846,7 @@ GameObject:
   - component: {fileID: 4847238831982358821}
   - component: {fileID: 673390990556371551}
   - component: {fileID: 1317645930426036226}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6902,7 +7013,7 @@ Transform:
   m_Children:
   - {fileID: 5710659094788717372}
   - {fileID: 2698928417791421720}
-  m_Father: {fileID: 6593567412541940094}
+  m_Father: {fileID: 3519420573459002418}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5.162, y: 52.822, z: -7.859}
 --- !u!114 &6547287051323422105
@@ -6929,7 +7040,7 @@ GameObject:
   - component: {fileID: 6637471895516819482}
   - component: {fileID: 8716363241320630083}
   - component: {fileID: 8670887651916495505}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: AmmoCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
 
     GameObject AttackHitbox;
 
+    AudioSource audioSource;
+
     NavMeshAgent agent;
 
     EnemyManager.EnemyStates state;
@@ -33,12 +35,19 @@ public class Enemy : MonoBehaviour
             ChangeColour();
             AttackHitbox.SetActive(false);
             timer = 0;
-            PatrolToRetreat = false;
+            RetreatToPatrol = false;
             PlayerHit = false;
-            if (State == EnemyManager.EnemyStates.Dead) gameObject.SetActive(false);
-            else if (State == EnemyManager.EnemyStates.Dying)
+            switch (State)
             {
-                globalVars.kills++;
+                case EnemyManager.EnemyStates.Dead:
+                    gameObject.SetActive(false);
+                    break;
+                case EnemyManager.EnemyStates.Dying:
+                    globalVars.kills++;
+                    break;
+                case EnemyManager.EnemyStates.Chasing:
+                    audioSource.Play();
+                    break;
             }
         }
     }
@@ -49,17 +58,18 @@ public class Enemy : MonoBehaviour
     float distance;
 
     public bool PlayerHit;
-    bool PatrolToRetreat;
+    bool RetreatToPatrol;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
         AttackHitbox = transform.GetChild(0).gameObject;
-        PatrolToRetreat = false;
+        RetreatToPatrol = false;
         PlayerHit = false;
         CurrentPatrolPoint = 0;
         State = EnemyManager.EnemyStates.Patrolling;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -113,7 +123,7 @@ public class Enemy : MonoBehaviour
 
         agent.SetDestination(PatrolPoints[0].position);
 
-        if (PatrolToRetreat)
+        if (RetreatToPatrol)
             State = EnemyManager.EnemyStates.Patrolling;
     }
 
@@ -187,9 +197,13 @@ public class Enemy : MonoBehaviour
         if (other.tag == "PatrolPoint")
         {
             CurrentPatrolPoint++;
-            PatrolToRetreat = true;
+            RetreatToPatrol = true;
             if (CurrentPatrolPoint >= PatrolPoints.Length)
                 CurrentPatrolPoint = 0;
+            if (State == EnemyManager.EnemyStates.Retreating)
+                for (int i = 0; i < PatrolPoints.Length; i++)
+                    if (other.transform == PatrolPoints[i])
+                        CurrentPatrolPoint = i + 1;
         }
         else if (other.CompareTag("PlayerAttack"))
         {

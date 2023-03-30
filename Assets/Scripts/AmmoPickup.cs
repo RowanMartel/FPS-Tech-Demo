@@ -5,6 +5,7 @@ using UnityEngine;
 public class AmmoPickup : MonoBehaviour
 {
     GlobalVars globalVars;
+    AudioSource audioSource;
 
     public int ammoType;
     public bool respawning;
@@ -15,6 +16,7 @@ public class AmmoPickup : MonoBehaviour
     {
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
         ShowModel();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -43,6 +45,7 @@ public class AmmoPickup : MonoBehaviour
 
     void Pickup()
     {
+        audioSource.Play();
         collected = true;
         HideModel();
 

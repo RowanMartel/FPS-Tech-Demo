@@ -9,6 +9,7 @@ public class GunManager : MonoBehaviour
     private void Start()
     {
         globalVars = FindObjectOfType<GlobalVars>();
+        globalVars.gunManager = this;
     }
 
     public void ChangeModel()
