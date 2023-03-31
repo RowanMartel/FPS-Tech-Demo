@@ -12,6 +12,6 @@ public class MinimapCamera : MonoBehaviour
     }
     void Update()
     {
-        
+        transform.position = vars.PlayerPos + new Vector3(0, 5, 0);
     }
 }

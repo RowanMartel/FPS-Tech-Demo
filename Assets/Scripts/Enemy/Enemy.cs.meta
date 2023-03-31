@@ -3,7 +3,15 @@ guid: c39553830162e3f48b7e393dcffa0a79
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PatrolMat: {instanceID: 0}
+  - ChaseMat: {instanceID: 0}
+  - AttackMat: {instanceID: 0}
+  - SearchMat: {instanceID: 0}
+  - RetreatMat: {instanceID: 0}
+  - DyingMat: {instanceID: 0}
+  - attentionNoise: {fileID: 8300000, guid: f8a8d98a71287034a9d8d7b3e9d989ef, type: 3}
+  - dyingNoise: {fileID: 8300000, guid: 15e3a5d24a7802d4d8250685f087c1c2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -135,10 +135,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6593567412541940094}
   - {fileID: 6060628520033345829}
   - {fileID: 2855744423616908396}
   m_Father: {fileID: 5069001871242034961}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1940407892620712051
 CharacterController:
@@ -1515,7 +1516,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1271816224043811523}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2855744423616908387
 MeshFilter:
@@ -3189,7 +3190,7 @@ Transform:
   m_Children:
   - {fileID: 4259494695562509205}
   m_Father: {fileID: 5069001871242034961}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4259494696139704912
 MonoBehaviour:
@@ -3260,7 +3261,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5069001871242034961}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6976186862257652228
 MonoBehaviour:
@@ -5330,7 +5331,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1271816224043811523}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6593567412541940091
 GameObject:
@@ -5364,7 +5365,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3519420573459002418}
-  m_Father: {fileID: 5069001871242034961}
+  m_Father: {fileID: 1271816224043811523}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &6593567412541940089
@@ -5398,7 +5399,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3071
+    m_Bits: 2943
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -7158,7 +7159,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6593567412541940094}
   - {fileID: 4259494696139704913}
   - {fileID: 1271816224043811523}
   - {fileID: 5207408997487491210}

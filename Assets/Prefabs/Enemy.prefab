@@ -11862,6 +11862,8 @@ MonoBehaviour:
   SearchMat: {fileID: 2100000, guid: d3de51dba1ba66f4eabb4c0d493949a2, type: 2}
   RetreatMat: {fileID: 2100000, guid: e3049acf3e216504e99c09077bfc9431, type: 2}
   DyingMat: {fileID: 2100000, guid: 75255d38bc1688d44ae19a207b451881, type: 2}
+  attentionNoise: {fileID: 8300000, guid: f8a8d98a71287034a9d8d7b3e9d989ef, type: 3}
+  dyingNoise: {fileID: 8300000, guid: 15e3a5d24a7802d4d8250685f087c1c2, type: 3}
   PlayerHit: 0
 --- !u!54 &8101412100613311004
 Rigidbody:
@@ -11889,7 +11891,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f8a8d98a71287034a9d8d7b3e9d989ef, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1

@@ -383,6 +383,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0045afb87e002ae45a211949b4650eef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wood: {fileID: 2100000, guid: c73afa86adc293341b193c1707ee4d75, type: 2}
+  woodEnd: {fileID: 2100000, guid: 353881116be1d974fb53fc11e01a137b, type: 2}
+  woodGrowing: {fileID: 2100000, guid: ed74ed9fae5f1284e98d70045e858f85, type: 2}
+  woodEndGrowing: {fileID: 2100000, guid: c13a9bb43f3fa124199420817858b61b, type: 2}
 --- !u!33 &8672009547386851494
 MeshFilter:
   m_ObjectHideFlags: 0

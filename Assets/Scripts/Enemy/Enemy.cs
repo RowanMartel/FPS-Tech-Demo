@@ -12,12 +12,22 @@ public class Enemy : MonoBehaviour
     public Transform[] PatrolPoints;
     int CurrentPatrolPoint;
 
-    public Material PatrolMat;
-    public Material ChaseMat;
-    public Material AttackMat;
-    public Material SearchMat;
-    public Material RetreatMat;
-    public Material DyingMat;
+    [SerializeField]
+    Material PatrolMat;
+    [SerializeField]
+    Material ChaseMat;
+    [SerializeField]
+    Material AttackMat;
+    [SerializeField]
+    Material SearchMat;
+    [SerializeField]
+    Material RetreatMat;
+    [SerializeField]
+    Material DyingMat;
+    [SerializeField]
+    AudioClip attentionNoise;
+    [SerializeField]
+    AudioClip dyingNoise;
 
     GameObject AttackHitbox;
 
@@ -44,9 +54,10 @@ public class Enemy : MonoBehaviour
                     break;
                 case EnemyManager.EnemyStates.Dying:
                     globalVars.kills++;
+                    audioSource.PlayOneShot(dyingNoise);
                     break;
                 case EnemyManager.EnemyStates.Chasing:
-                    audioSource.Play();
+                    audioSource.PlayOneShot(attentionNoise);
                     break;
             }
         }

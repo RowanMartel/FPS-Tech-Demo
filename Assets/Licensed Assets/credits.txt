@@ -4,4 +4,5 @@ metall001-new-tileable_0.png (blue metal) by p0ss on opengameart.org under the L
 mtl_wall02_c.png (door metal) by Spiney on opengameart.org under the CC BY-SA 3.0 license.
 wood_end_02.png (wood stump) by para on opengameart.org under public domain.
 vegetation_tree_bark_110.png (wood bark) by para on opengameart.org under public domain.
-gutsy (spike gun) by cron on opengameart.org under public domain.
+gutsy.png (spike gun) by cron on opengameart.org under public domain.
+waterwall.png (ceiling) by Crack.com and submitted by bart on opengameart.org under public domain.
