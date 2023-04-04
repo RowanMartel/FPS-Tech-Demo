@@ -9,12 +9,14 @@ public class Teleport : MonoBehaviour
     GlobalVars globalVars;
     public bool rotate;
     DeterminePlayerSpawn playerSpawn;
+    AudioSource audioSource;
 
     private void Start()
     {
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
         globalVars.teleporting = false;
         playerSpawn = GameObject.Find("EventManager").GetComponent<DeterminePlayerSpawn>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,7 +48,7 @@ public class Teleport : MonoBehaviour
             Physics.IgnoreLayerCollision(7, 9, true);
             Physics.IgnoreLayerCollision(7, 11, true);
 
-
+            if (audioSource) audioSource.Play();
             CharController.Move(TPPoint.position - new Vector3(0, 0.906318f, 0) - GameObject.Find("PlayerCapsule").transform.position);
             CharController.SimpleMove(Vector3.zero);
 

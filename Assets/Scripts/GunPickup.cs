@@ -6,11 +6,13 @@ public class GunPickup : MonoBehaviour
 {
     public int gunID;
     GlobalVars globalVars;
+    AudioSource audioSource;
 
     void Start()
     {
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
         SetModelActive();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void SwapGun()
@@ -18,6 +20,7 @@ public class GunPickup : MonoBehaviour
         int tempID = gunID;
         gunID = globalVars.PlayerWeapon;
         globalVars.PlayerWeapon = tempID;
+        audioSource.Play();
 
         SetModelActive();
     }
