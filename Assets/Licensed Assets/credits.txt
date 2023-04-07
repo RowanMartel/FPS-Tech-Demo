@@ -9,3 +9,6 @@ waterwall.png (ceiling) by Crack.com and submitted by bart on opengameart.org un
 fire2.jpg (lava floor) by Crack.com and submitted by bart on opengameart.org under public domain.
 m-00d.jpg (moving platform top) by rubberduck on opengameart.org under public domain.
 m-019.jpg (moving platform sides) by rubberduck on opengameart.org under public domain. Edited to have an indigo tint.
+
+All sound effects made with https://sfxr.me/
+All music made with https://tones.wolfram.com/generate

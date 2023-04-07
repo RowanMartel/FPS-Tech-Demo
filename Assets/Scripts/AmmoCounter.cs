@@ -25,6 +25,9 @@ public class AmmoCounter : MonoBehaviour
             case 2:
                 Text.SetText(vars.tentacleAmmo.ToString());
                 break;
+            case 3:
+                Text.SetText(vars.ballAmmo.ToString());
+                break;
         }
     }
 }

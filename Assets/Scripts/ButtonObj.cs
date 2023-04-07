@@ -7,6 +7,7 @@ public class ButtonObj : MonoBehaviour
 {
     GameObject player;
     public GameObject obj;
+    AudioSource audioSource;
 
     public bool ActivateSetObjActive;
     public bool ActivateSetObjInactive;
@@ -19,6 +20,7 @@ public class ButtonObj : MonoBehaviour
     private void Start()
     {
         GetComponent<Renderer>().material = ButtonMaterial;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Activate()
@@ -34,6 +36,7 @@ public class ButtonObj : MonoBehaviour
         if (ActivateSpawner)
             Spawner();
 
+        audioSource.Play();
         StartCoroutine("UnPress");
     }
     private IEnumerator UnPress()

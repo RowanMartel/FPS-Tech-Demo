@@ -7,9 +7,11 @@ public class DoorLock : MonoBehaviour
     DoorOpen door;
     bool unlocking = false;
     GlobalVars globalVars;
+    AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
         door = transform.parent.GetComponentInChildren<DoorOpen>();
     }
@@ -32,8 +34,10 @@ public class DoorLock : MonoBehaviour
 
     public void Unlock()
     {
-        if (!globalVars.KeyCheck())
+        if (!globalVars.KeyCheck() || unlocking)
             return;
+        audioSource.Play();
+
         unlocking = true;
     }
 }

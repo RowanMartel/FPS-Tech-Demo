@@ -51,6 +51,8 @@ public class GlobalVars : MonoBehaviour
     public int rodAmmoMax;
     public int tentacleAmmo;
     public int tentacleAmmoMax;
+    public int ballAmmo;
+    public int ballAmmoMax;
 
     [System.NonSerialized]
     public GunManager gunManager;

@@ -6,9 +6,11 @@ public class KeyCard : MonoBehaviour
 {
     bool collected;
     GlobalVars globalVars;
+    AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
     }
 
@@ -22,6 +24,7 @@ public class KeyCard : MonoBehaviour
 
     void Pickup()
     {
+        audioSource.Play();
         collected = true;
         GetComponent<MeshRenderer>().enabled = false;
         globalVars.keys++;

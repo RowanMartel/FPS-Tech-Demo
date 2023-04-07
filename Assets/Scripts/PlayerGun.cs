@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlayerGun : MonoBehaviour
 {
     RodSpawner rodSpawner;
+    BallSpawner ballSpawner;
     Tentacle tentacle;
     GlobalVars globalVars;
 
     private void Start()
     {
         rodSpawner = GameObject.FindObjectOfType<RodSpawner>();
+        ballSpawner = GameObject.FindObjectOfType<BallSpawner>();
         globalVars = GameObject.Find("EventManager").GetComponent<GlobalVars>();
         tentacle = GameObject.FindObjectOfType<Tentacle>();
     }
@@ -26,6 +28,9 @@ public class PlayerGun : MonoBehaviour
                     break;
                 case 2:
                     globalVars.Player.GetComponentInChildren<Tentacle>().Stab();
+                    break;
+                case 3:
+                    ballSpawner.SpawnItem();
                     break;
             }    
         }
